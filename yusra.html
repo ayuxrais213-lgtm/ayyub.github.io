@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy New Year Yusra ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500&display=swap');
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins', sans-serif;
+}
+
+body{
+  min-height:100vh;
+  background: linear-gradient(120deg, #ff758c, #ff7eb3);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+}
+
+.container{
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  padding:25px;
+  border-radius:20px;
+  max-width:500px;
+  text-align:center;
+  color:white;
+  box-shadow:0 0 30px rgba(255,255,255,0.4);
+  animation: fadeIn 2s ease;
+}
+
+h1{
+  font-family:'Great Vibes', cursive;
+  font-size:48px;
+  text-shadow:0 0 15px #fff;
+}
+
+.name{
+  font-size:36px;
+  color:#fff6f9;
+  margin:10px 0;
+  text-shadow:0 0 10px #ffdde1;
+}
+
+.message{
+  margin-top:15px;
+  font-size:15px;
+  line-height:1.7;
+}
+
+button, input{
+  margin-top:15px;
+}
+
+.music-btn{
+  padding:10px 20px;
+  border:none;
+  border-radius:30px;
+  background:#fff;
+  color:#ff4d6d;
+  font-weight:600;
+  cursor:pointer;
+  box-shadow:0 0 10px #fff;
+}
+
+.music-btn:hover{
+  transform:scale(1.05);
+}
+
+.hearts span{
+  position:absolute;
+  font-size:20px;
+  animation: float 6s linear infinite;
+}
+
+@keyframes float{
+  0%{transform:translateY(100vh); opacity:0;}
+  50%{opacity:1;}
+  100%{transform:translateY(-10vh); opacity:0;}
+}
+
+@keyframes fadeIn{
+  from{opacity:0; transform:scale(0.8);}
+  to{opacity:1; transform:scale(1);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>✨ Happy New Year ✨</h1>
+  <div class="name">Yusra ❤️</div>
+
+  <p class="message">
+    My love 💕, thank you for being my smile on bad days, my peace in chaos,
+    and my strongest support when I feel weak 🫂.  
+    You are not just my girlfriend, you are my best friend, my comfort zone,
+    my happiness, my safe place 🌍💖.  
+    Every laugh, every memory, every moment with you is a blessing ✨.  
+    As this new year begins 🎆, I promise to stand by you, love you deeper,
+    and choose you every single day 💍❤️.  
+    Thank you for being **my everything** 🥺💞.
+  </p>
+
+  <input type="file" accept="audio/*" id="musicInput">
+  <br>
+  <button class="music-btn" onclick="playMusic()">▶ Play Our Song 🎵</button>
+
+  <audio id="audio"></audio>
+</div>
+
+<div class="hearts" id="hearts"></div>
+
+<script>
+function playMusic(){
+  const input = document.getElementById("musicInput");
+  const audio = document.getElementById("audio");
+
+  if(input.files.length === 0){
+    alert("Please choose a song first 💕");
+    return;
+  }
+
+  audio.src = URL.createObjectURL(input.files[0]);
+  audio.play();
+}
+
+function createHearts(){
+  const hearts = document.getElementById("hearts");
+  const span = document.createElement("span");
+  span.innerHTML = "❤️";
+  span.style.left = Math.random() * 100 + "vw";
+  span.style.animationDuration = (Math.random() * 3 + 3) + "s";
+  hearts.appendChild(span);
+
+  setTimeout(() => {
+    span.remove();
+  }, 6000);
+}
+
+setInterval(createHearts, 300);
+</script>
+
+</body>
+</html>
